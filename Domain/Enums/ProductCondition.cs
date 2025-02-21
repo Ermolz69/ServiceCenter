@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.Enums
+﻿namespace Domain.Enums
 {
+    /// <summary>
+    /// Represents the condition of a product.
+    /// </summary>
+    /// <remarks>
+    /// Possible values include New, Used, Refurbished, and Broken.
+    /// </remarks>
     public enum ProductCondition
     {
         New,

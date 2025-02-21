@@ -2,6 +2,12 @@
 
 namespace ServiceCenter.Domain.Entities
 {
+    /// <summary>
+    /// Represents an item within an order.
+    /// </summary>
+    /// <remarks>
+    /// Contains details about the product, its quantity, price, and references to the associated order.
+    /// </remarks>
     public class OrderItem
     {
         public int Id { get; set; }

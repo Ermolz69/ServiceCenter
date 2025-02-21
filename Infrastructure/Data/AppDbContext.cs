@@ -3,6 +3,12 @@ using ServiceCenter.Domain.Entities;
 
 namespace ServiceCenter.Infrastructure.Data
 {
+    /// <summary>
+    /// Represents the application's database context.
+    /// </summary>
+    /// <remarks>
+    /// Provides access to the database sets and configurations for the entities.
+    /// </remarks>
     public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options)

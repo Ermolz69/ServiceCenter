@@ -1,5 +1,11 @@
 ﻿namespace ServiceCenter.Domain.Enums
 {
+    /// <summary>
+    /// Represents the category of a product.
+    /// </summary>
+    /// <remarks>
+    /// Possible values include Monitors, Printers, PCs, and Cartridges.
+    /// </remarks>
     public enum ProductCategory
     {
         Monitors = 0,

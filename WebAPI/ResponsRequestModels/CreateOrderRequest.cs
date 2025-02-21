@@ -3,6 +3,12 @@ using ServiceCenter.Application.DTOs;
 
 namespace ServiceCenter.WebAPI.ResponseRequestModels
 {
+    /// <summary>
+    /// Represents a request to create a new order.
+    /// </summary>
+    /// <remarks>
+    /// Contains customer details, contact information, delivery address, payment method, comments, order status, and a list of order items.
+    /// </remarks>
     public class CreateOrderRequest
     {
         public string CustomerName { get; set; } = null!;

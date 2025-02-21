@@ -3,6 +3,12 @@ using ServiceCenter.Domain.Enums;
 
 namespace ServiceCenter.Domain.Entities
 {
+    /// <summary>
+    /// Represents a product entity.
+    /// </summary>
+    /// <remarks>
+    /// Contains the product’s basic details such as name, description, category, price, condition, photo, and quantity.
+    /// </remarks>
     public class Product
     {
         public int Id { get; set; }

@@ -3,7 +3,7 @@ using ServiceCenter.Application.Interfaces;
 using ServiceCenter.Application.Services;
 using ServiceCenter.Infrastructure.Data;
 using ServiceCenter.Infrastructure.Repositories;
-using YourSolution.Application.Services;
+using ServiceCenter.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
