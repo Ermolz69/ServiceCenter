@@ -3,7 +3,7 @@ using ServiceCenter.Application.Interfaces;
 using ServiceCenter.Domain.Entities;
 
 
-namespace YourSolution.WebAPI.Controllers
+namespace ServiceCenter.WebAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

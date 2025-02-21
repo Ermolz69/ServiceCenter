@@ -22,12 +22,17 @@ namespace ServiceCenter.Infrastructure.Data
             // ------------------ Product ------------------
             modelBuilder.Entity<Product>(entity =>
             {
+                entity.HasKey(e => e.Id);
+
+                entity.Property(e => e.Id)
+                      .ValueGeneratedOnAdd();
+
                 entity.Property(e => e.Name)
                       .HasMaxLength(100)
                       .IsRequired();
 
                 entity.Property(e => e.Description)
-                      .HasMaxLength(5000)   
+                      .HasMaxLength(5000)
                       .IsRequired();
 
                 entity.Property(e => e.Price)
@@ -40,14 +45,17 @@ namespace ServiceCenter.Infrastructure.Data
                       .HasConversion<string>()
                       .IsRequired();
 
-                // Если хотите, можно настроить значение по умолчанию для CreatedAt
                 entity.Property(e => e.CreatedAt)
                       .HasDefaultValueSql("GETUTCDATE()");
             });
 
+
             // ------------------ Order ------------------
             modelBuilder.Entity<Order>(entity =>
             {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Id).ValueGeneratedOnAdd();
+
                 entity.Property(e => e.CustomerName)
                       .HasMaxLength(100)
                       .IsRequired();
@@ -69,16 +77,14 @@ namespace ServiceCenter.Infrastructure.Data
 
                 entity.Property(e => e.CreatedAt)
                       .HasDefaultValueSql("GETUTCDATE()");
-
-                entity.HasMany(o => o.OrderItems)
-                      .WithOne()
-                      .HasForeignKey(nameof(OrderItem.OrderId))
-                      .OnDelete(DeleteBehavior.Cascade);
             });
 
             // ------------------ OrderItem ------------------
             modelBuilder.Entity<OrderItem>(entity =>
             {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Id).ValueGeneratedOnAdd();
+
                 entity.Property(e => e.Quantity)
                       .IsRequired();
 
@@ -86,11 +92,17 @@ namespace ServiceCenter.Infrastructure.Data
                       .HasColumnType("decimal(18,2)")
                       .IsRequired();
 
+                entity.HasOne(e => e.Order)
+                      .WithMany(o => o.OrderItems)
+                      .HasForeignKey(e => e.OrderId)
+                      .OnDelete(DeleteBehavior.Cascade);
+
                 entity.HasOne(e => e.Product)
                       .WithMany()
                       .HasForeignKey(e => e.ProductId)
                       .OnDelete(DeleteBehavior.Restrict);
             });
+
 
             // ------------------ ServiceRequest ------------------
             modelBuilder.Entity<ServiceRequest>(entity =>
